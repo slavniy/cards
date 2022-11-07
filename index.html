@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CardChecker</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="card" id="app">
+
+        <!-- Здесь будет выводиться ЛОГОТИП БАНКА -->
+        <div class="bank">
+            <img  v-bind:src=" bankImg ">
+        </div>
+
+        <!-- Поле для ввода НОМЕРА КАРТЫ -->
+        <div class="number-container">
+            <input v-model="number" type="text" placeholder="Номер карты" :class=" {'input-ok' : isCorrectLength, 'input-err': !isCorrectLength } ">
+            <div class="status" :class="{'status-ok': isCorrectLength, 'status-err': !isCorrectLength}"></div>
+        </div>
+
+        <!-- Поле для ввода ИМЕНИ ДЕРЖАТЕЛЯ -->
+        <div class="name-container">
+            <input type="text" placeholder="Имя держателя" v-model="cardHolder">
+            <div class="status"  v-bind:class=" {'status-ok': nameIsCorrect, 'status-err': !nameIsCorrect} "></div>
+        </div>
+
+        <!-- Логотип ПЛАТЕЖНОЙ СИСТЕМЫ -->
+        <div class="pay-system">
+            <img v-bind:src="paySystemImg">
+        </div>
+
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
